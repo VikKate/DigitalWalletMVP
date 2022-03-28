@@ -1,0 +1,25 @@
+diff --git a/node_modules/native-base/src/core/NativeBaseProvider.tsx b/node_modules/native-base/src/core/NativeBaseProvider.tsx
+index f2fb5d4..4f9eb01 100644
+--- a/node_modules/native-base/src/core/NativeBaseProvider.tsx
++++ b/node_modules/native-base/src/core/NativeBaseProvider.tsx
+@@ -91,12 +91,14 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
+             colorModeManager={colorModeManager}
+             options={theme.config}
+           >
+-            <OverlayProvider>
+-              <ToastProvider>
+-                <InitializeToastRef />
+-                <SSRProvider>{children}</SSRProvider>
+-              </ToastProvider>
+-            </OverlayProvider>
++            <SSRProvider>
++              <OverlayProvider>
++                <ToastProvider>
++                  <InitializeToastRef />
++                  {children}
++                </ToastProvider>
++              </OverlayProvider>
++            </SSRProvider>
+           </HybridProvider>
+         </ResponsiveQueryProvider>
+       </SafeAreaProvider>
